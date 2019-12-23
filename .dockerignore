@@ -1,0 +1,8 @@
+node_modules/
+test/
+build/
+.cache/
+.gitignore
+prettier.config.js
+README.md
+tslint.json

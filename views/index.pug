@@ -1,0 +1,28 @@
+html
+  head
+    title IP Location Finder
+    link(rel="stylesheet" type="text/css" href="static/styles.css")
+  body
+    h1 IP Location Finder
+    div
+      form(action="/" method="POST")
+        label(for="ip-address") IPv4 Address:
+        input(
+          id="ip-address"
+          name="ip-address"
+          type="text"
+          value=ip
+          aria-describedby="error-message"
+        )
+        input(type="submit" value="Submit")
+        br
+        div(id="error-message") #{error}
+        if location
+          table
+            tr
+              th Latitude
+              td #{location.latitude.isSome() ? location.latitude.get() : 'none found'}
+            tr
+              th Longitude
+              td #{location.longitude.isSome() ? location.longitude.get() : 'none found'}
+      

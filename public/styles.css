@@ -1,0 +1,22 @@
+* {
+  font-family: Arial;
+}
+
+label {
+  padding-top:    5px;
+  padding-bottom: 5px;
+  padding-right:  10px;
+}
+
+input {
+  padding-left: 5px;
+}
+
+#error-message {
+  color:     #cc0000;
+  padding-top: 5px;
+}
+
+th {
+  text-align: left;
+}
