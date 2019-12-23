@@ -46,6 +46,7 @@ describe('ipPostHandler', () => {
     handler(req, res)
     expect(res.render).toBeCalledWith('index', {
       error: 'No IP address provided',
+      ip: null
     })
   })
 
@@ -62,6 +63,7 @@ describe('ipPostHandler', () => {
     handler(req, res)
     expect(res.render).toBeCalledWith('index', {
       error: 'The address provided is not a valid IPv4 address',
+      ip: 'hello'
     })
   })
 
@@ -76,6 +78,9 @@ describe('ipPostHandler', () => {
       render: jest.fn(),
     }
     handler(req, res)
-    expect(res.render).toBeCalledWith('index', { error: 'Error: ERROR' })
+    expect(res.render).toBeCalledWith('index', {
+      error: 'Error: ERROR',
+      ip: '192.168.1.1'
+    })
   })
 })

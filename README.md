@@ -75,3 +75,12 @@ npm run test
     ✓ should throw if used when uninitialized (5ms)
     ✓ should return some results for a valid IP address (93ms)
 ```
+
+If you do not have node and npm installed you can exec into the docker
+container created by `docker-compose up` and run the tests from within the
+container.
+
+```sh
+docker exec -it <container-id> /bin/ash
+npm run test
+```

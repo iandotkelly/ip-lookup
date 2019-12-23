@@ -7,11 +7,13 @@ function createIpPostHandler(finder: LocationFinder) {
   return function ipPostHandler(req: any, res: any) {
     const ip = req.body['ip-address']
     if (!ip) {
-      return res.render('index', { error: 'No IP address provided' })
+      return res.render('index', {
+        error: 'No IP address provided', ip
+      })
     }
     if (!new Address4(ip).isValid()) {
       return res.render('index', {
-        error: 'The address provided is not a valid IPv4 address',
+        error: 'The address provided is not a valid IPv4 address', ip
       })
     }
 
@@ -19,7 +21,7 @@ function createIpPostHandler(finder: LocationFinder) {
       const location = finder.find(ip)
       res.render('index', { location, ip })
     } catch (err) {
-      return res.render('index', { error: err.toString() })
+      return res.render('index', { error: err.toString(), ip })
     }
   }
 }
